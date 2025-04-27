@@ -1,24 +1,46 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-// Import your screens
+import SplashScreen from '../screens/SplashScreen';
 import HomeScreen from '../screens/HomeScreen';
-import EventsScreen from '../screens/EventsScreen';
-import PrayerScreen from '../screens/PrayerScreen';
-import DonateScreen from '../screens/DonateScreen';
+import AdminDashboard from '../screens/AdminDashboard';
+import MemberDashboard from '../screens/MemberDashboard';
+import VisitorFormScreen from '../screens/VisitorFormScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function AppNavigator() {
+const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Events" component={EventsScreen} />
-        <Stack.Screen name="Prayer" component={PrayerScreen} />
-        <Stack.Screen name="Donate" component={DonateScreen} />
+      <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Who Are You?' }}
+        />
+        <Stack.Screen
+          name="AdminDashboard"
+          component={AdminDashboard}
+          options={{ title: '< Back' }}
+        />
+        <Stack.Screen
+          name="MemberDashboard"
+          component={MemberDashboard}
+          options={{ title: '< Back' }}
+        />
+        <Stack.Screen
+          name="VisitorFormScreen"
+          component={VisitorFormScreen}
+          options={{ title: '< Back' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default AppNavigator;

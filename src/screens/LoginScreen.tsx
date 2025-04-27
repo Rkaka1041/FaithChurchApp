@@ -1,39 +1,34 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-const HomeScreen = () => {
-  const navigation = useNavigation();
-
+export default function LoginScreen({ navigation }: any) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Who Are You?</Text>
 
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('AdminDashboard' as never)}
+        onPress={() => navigation.navigate('AdminDashboard')}
       >
         <Text style={styles.buttonText}>👨‍💼 Admin</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('MemberDashboard' as never)}
+        onPress={() => navigation.navigate('Home')}
       >
-        <Text style={styles.buttonText}>🧑‍🤝‍🧑 Member</Text>
+        <Text style={styles.buttonText}>🙋‍♂️ Member</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('VisitorFormScreen' as never)}
+        onPress={() => navigation.navigate('VisitorForm')}
       >
         <Text style={styles.buttonText}>👋 Visitor</Text>
       </TouchableOpacity>
     </View>
   );
-};
-
-export default HomeScreen;
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -44,22 +39,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#5a67d8',
+    color: '#4a90e2',
+    marginBottom: 40,
+    textAlign: 'center',
   },
   button: {
-    backgroundColor: '#5a67d8',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 8,
+    backgroundColor: '#4a90e2',
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 10,
     marginVertical: 10,
     width: '80%',
     alignItems: 'center',
   },
   buttonText: {
-    color: '#ffffff',
+    color: '#fff',
     fontSize: 18,
+    fontWeight: '600',
   },
 });
