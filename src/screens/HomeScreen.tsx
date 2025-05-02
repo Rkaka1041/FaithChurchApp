@@ -3,31 +3,32 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Who Are You?</Text>
+      <Text style={styles.title}>🙏 Welcome to Faith Church App</Text>
+      <Text style={styles.subtitle}>Please choose your role</Text>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('AdminDashboard' as never)}
+        onPress={() => navigation.navigate('AdminLogin')}
       >
-        <Text style={styles.buttonText}>👨‍💼 Admin</Text>
+        <Text style={styles.buttonText}>👤 Admin</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('MemberDashboard' as never)}
+        onPress={() => navigation.navigate('MemberDashboard')}
       >
         <Text style={styles.buttonText}>🧑‍🤝‍🧑 Member</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('VisitorFormScreen' as never)}
+        onPress={() => navigation.navigate('VisitorInfo')}
       >
-        <Text style={styles.buttonText}>👋 Visitor</Text>
+        <Text style={styles.buttonText}>🙋 Visitor</Text>
       </TouchableOpacity>
     </View>
   );
@@ -38,28 +39,32 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f7f9fc',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-    paddingHorizontal: 20,
+    paddingHorizontal: 30,
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
+    marginBottom: 12,
+    textAlign: 'center',
+    color: '#4A90E2',
+  },
+  subtitle: {
+    fontSize: 16,
     marginBottom: 30,
-    color: '#5a67d8',
+    textAlign: 'center',
+    color: '#555',
   },
   button: {
-    backgroundColor: '#5a67d8',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 8,
-    marginVertical: 10,
-    width: '80%',
+    backgroundColor: '#4A90E2',
+    paddingVertical: 14,
+    borderRadius: 10,
+    marginBottom: 16,
     alignItems: 'center',
   },
   buttonText: {
-    color: '#ffffff',
+    color: '#fff',
     fontSize: 18,
   },
 });
